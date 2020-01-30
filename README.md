@@ -1,6 +1,8 @@
 # blazor-ionic-js-demo
 
-Using Blazor (server) with Ionic Framework for JavaScript components
+This project is based on the ASP.NET Core 3.1 "blazorserver" template
+and is intended as a demonstration of how to use the Ionic Framework
+components for JavaScript (v4+) with Razor.
 
 # Ionic Framework docs
 
