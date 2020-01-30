@@ -1,0 +1,17 @@
+﻿@page "/counter"
+
+<ion-text>
+    <h1>Counter</h1>
+    <p>Current count: @currentCount</p>
+</ion-text>
+
+<ion-button @onclick="IncrementCount">Click Me</ion-button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}

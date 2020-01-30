@@ -1,0 +1,46 @@
+﻿@page "/"
+@namespace BlazorIonicJSDemo.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BlazorIonicJSDemo</title>
+    <base href="~/" />
+
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link href="css/site.css" rel="stylesheet" />
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@ionic/core/css/ionic.bundle.css"/>
+</head>
+<body>
+    <ion-app>
+        <ion-content>
+            <app>
+                <component type="typeof(App)" render-mode="ServerPrerendered" />
+            </app>
+
+            <div id="blazor-error-ui">
+                <environment include="Staging,Production">
+                    An error has occurred. This application may no longer respond until reloaded.
+                </environment>
+                <environment include="Development">
+                    An unhandled exception has occurred. See browser dev tools for details.
+                </environment>
+                
+                <a href="" class="reload">Reload</a>
+                <a class="dismiss">🗙</a>
+            </div>
+
+            <script src="_framework/blazor.server.js"></script>
+        </ion-content>
+    </ion-app>
+</body>
+</html>
