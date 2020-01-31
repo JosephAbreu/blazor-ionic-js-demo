@@ -1,17 +1,33 @@
 ﻿@page "/counter"
 
-<ion-text>
-    <h1>Counter</h1>
-    <p>Current count: @currentCount</p>
-</ion-text>
+<div style="max-width: 700px; margin: 0 auto;">
+    <ion-text>
+        <h1>Counter</h1>
+        <p>Current count: @currentCount</p>
+    </ion-text>
 
-<ion-button @onclick="IncrementCount">Click Me</ion-button>
+    <ion-list lines="none">
+        <ion-item>
+            <ion-label color="primary">Increment By:</ion-label>
+            <ion-input type="number" @bind-value:event="oninput" @bind-value="incrementBy"></ion-input>
+            <ion-button size="default" slot="end" @onclick="OnIncrementCount">Click Me</ion-button>
+            <ion-button size="default" slot="end" fill="outline" color="secondary" @onclick="OnReset">Reset</ion-button>
+        </ion-item>
+    </ion-list>
+</div>
 
 @code {
     private int currentCount = 0;
+    private int incrementBy = 0;
 
-    private void IncrementCount()
+    private void OnIncrementCount()
     {
-        currentCount++;
+        currentCount = currentCount + incrementBy;
+    }
+
+    private void OnReset()
+    {
+        currentCount =
+            incrementBy = 0;
     }
 }
