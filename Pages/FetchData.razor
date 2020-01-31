@@ -20,6 +20,13 @@
         <p>This component demonstrates fetching data from a service.</p>
     </ion-text>
 
+    <ion-list>
+        <ion-item lines="none">
+            <ion-toggle slot="start" @bind-value:event="oninput" @bind-value="IsUsingCelcius" @onclick="ToggleCelcius"></ion-toggle>
+            <ion-label>Use Celcius</ion-label>
+        </ion-item>
+    </ion-list>
+
     @if (forecasts == null)
     {
         <ion-text>
@@ -31,16 +38,19 @@
         <ion-list>
             @foreach (var forecast in forecasts)
             {
-                <ion-item>
-                    <ion-label>
-                        @forecast.Date.ToShortDateString()
-                        <br/>
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-subtitle>
+                            @forecast.Date.ToShortDateString()
+                        </ion-card-subtitle>
+                        <ion-card-title>
+                            @GetTempAsText(forecast)
+                        </ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
                         @forecast.Summary
-                    </ion-label>
-                    <ion-label slot="end">
-                        @forecast.TemperatureF&deg; F /  @forecast.TemperatureC&deg; C
-                    </ion-label>
-                </ion-item>
+                    </ion-card-content>
+                </ion-card>
             }
         </ion-list>
     }
@@ -48,7 +58,20 @@
 </ion-content>
 </ion-page>
 
+@functions {
+    public void ToggleCelcius()
+    {
+        IsUsingCelcius = !IsUsingCelcius;
+    }
+
+    public string GetTempAsText(WeatherForecast forecast)
+    {
+        return (IsUsingCelcius ? forecast.TemperatureC + " C" : forecast.TemperatureF + " F");
+    }
+}
+
 @code {
+    public bool IsUsingCelcius { get; set; } = false;
     private WeatherForecast[] forecasts;
 
     protected override async Task OnInitializedAsync()
