@@ -1,15 +1,10 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="sidebar">
-    <NavMenu />
-</div>
-
-<div class="main">
-    <div class="top-row px-4">
-        <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-    </div>
-
-    <div class="content px-4">
+<ion-split-pane content-id="menu-content">
+    <ion-menu content-id="menu-content">
+        <NavMenu/>
+    </ion-menu>
+    <ion-content id="menu-content">
         @Body
-    </div>
-</div>
+    </ion-content>
+</ion-split-pane>

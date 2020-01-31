@@ -3,35 +3,45 @@
 @using BlazorIonicJSDemo.Data
 @inject WeatherForecastService ForecastService
 
-<ion-text>
-    <h1>Weather forecast</h1>
-    <p>This component demonstrates fetching data from a service.</p>
-</ion-text>
+<ion-page>
+<ion-header>
+  <ion-toolbar color="primary">
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
 
-@if (forecasts == null)
-{
     <ion-text>
-        <p><em>Loading...</em></p>
+        <h1>Weather forecast</h1>
+        <p>This component demonstrates fetching data from a service.</p>
     </ion-text>
-}
-else
-{
-    <ion-list>
-        @foreach (var forecast in forecasts)
-        {
-            <ion-item>
-                <ion-label>
-                    @forecast.Date.ToShortDateString()
-                    <br/>
-                    @forecast.Summary
-                </ion-label>
-                <ion-label slot="end">
-                    @forecast.TemperatureF&deg; F /  @forecast.TemperatureC&deg; C
-                </ion-label>
-            </ion-item>
-        }
-    </ion-list>
-}
+
+    @if (forecasts == null)
+    {
+        <ion-text>
+            <p><em>Loading...</em></p>
+        </ion-text>
+    }
+    else
+    {
+        <ion-list>
+            @foreach (var forecast in forecasts)
+            {
+                <ion-item>
+                    <ion-label>
+                        @forecast.Date.ToShortDateString()
+                        <br/>
+                        @forecast.Summary
+                    </ion-label>
+                    <ion-label slot="end">
+                        @forecast.TemperatureF&deg; F /  @forecast.TemperatureC&deg; C
+                    </ion-label>
+                </ion-item>
+            }
+        </ion-list>
+    }
+
+</ion-content>
+</ion-page>
 
 @code {
     private WeatherForecast[] forecasts;

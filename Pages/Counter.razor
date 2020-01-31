@@ -1,20 +1,27 @@
 ﻿@page "/counter"
+<ion-page>
+<ion-header>
+  <ion-toolbar color="primary">
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+    <div style="max-width: 700px; margin: 0 auto;">
+        <ion-text>
+            <h1>Counter</h1>
+            <p>Current count: @currentCount</p>
+        </ion-text>
 
-<div style="max-width: 700px; margin: 0 auto;">
-    <ion-text>
-        <h1>Counter</h1>
-        <p>Current count: @currentCount</p>
-    </ion-text>
-
-    <ion-list lines="none">
-        <ion-item>
-            <ion-label color="primary">Increment By:</ion-label>
-            <ion-input type="number" @bind-value:event="oninput" @bind-value="incrementBy"></ion-input>
-            <ion-button size="default" slot="end" @onclick="OnIncrementCount">Click Me</ion-button>
-            <ion-button size="default" slot="end" fill="outline" color="secondary" @onclick="OnReset">Reset</ion-button>
-        </ion-item>
-    </ion-list>
-</div>
+        <ion-list lines="none">
+            <ion-item>
+                <ion-label color="primary">Increment By:</ion-label>
+                <ion-input type="number" @bind-value:event="oninput" @bind-value="incrementBy"></ion-input>
+                <ion-button size="default" slot="end" @onclick="OnIncrementCount">Click Me</ion-button>
+                <ion-button size="default" slot="end" fill="outline" color="secondary" @onclick="OnReset">Reset</ion-button>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>
+</ion-page>
 
 @code {
     private int currentCount = 0;
