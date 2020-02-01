@@ -11,13 +11,13 @@
         <ion-icon name="menu"></ion-icon>
       </ion-menu-button>
     </ion-buttons>
+    <ion-title>Weather Forecasts</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
 
     <ion-text>
-        <h1>Weather forecast</h1>
-        <p>This component demonstrates fetching data from a service.</p>
+        This component demonstrates fetching data from a service.
     </ion-text>
 
     <ion-list>
@@ -36,6 +36,9 @@
     else
     {
         <ion-list>
+            <ion-list-header>
+                <ion-label>Daily Forecast</ion-label>
+            </ion-list-header>
             @foreach (var forecast in forecasts)
             {
                 <ion-card>
@@ -53,6 +56,7 @@
                 </ion-card>
             }
         </ion-list>
+        <br/><br/>
     }
 
 </ion-content>
