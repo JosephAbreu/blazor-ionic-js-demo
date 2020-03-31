@@ -15,50 +15,50 @@
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
-
-    <ion-text>
-        This component demonstrates fetching data from a service.
-    </ion-text>
-
-    <ion-list>
-        <ion-item lines="none">
-            <ion-toggle slot="start" @bind-value:event="oninput" @bind-value="IsUsingCelcius" @onclick="ToggleCelcius"></ion-toggle>
-            <ion-label>Use Celcius</ion-label>
-        </ion-item>
-    </ion-list>
-
-    @if (forecasts == null)
-    {
+    <div class="max-width">
         <ion-text>
-            <p><em>Loading...</em></p>
+            This component demonstrates fetching data from a service.
         </ion-text>
-    }
-    else
-    {
-        <ion-list>
-            <ion-list-header>
-                <ion-label>Daily Forecast</ion-label>
-            </ion-list-header>
-            @foreach (var forecast in forecasts)
-            {
-                <ion-card>
-                    <ion-card-header>
-                        <ion-card-subtitle>
-                            @forecast.Date.ToShortDateString()
-                        </ion-card-subtitle>
-                        <ion-card-title>
-                            @GetTempAsText(forecast)
-                        </ion-card-title>
-                    </ion-card-header>
-                    <ion-card-content>
-                        @forecast.Summary
-                    </ion-card-content>
-                </ion-card>
-            }
-        </ion-list>
-        <br/><br/>
-    }
 
+        <ion-list>
+            <ion-item lines="none">
+                <ion-toggle slot="start" @bind-value:event="oninput" @bind-value="IsUsingCelcius" @onclick="ToggleCelcius"></ion-toggle>
+                <ion-label>Use Celcius</ion-label>
+            </ion-item>
+        </ion-list>
+
+        @if (forecasts == null)
+        {
+            <ion-text>
+                <p><em>Loading...</em></p>
+            </ion-text>
+        }
+        else
+        {
+            <ion-list>
+                <ion-list-header>
+                    <ion-label>Daily Forecast</ion-label>
+                </ion-list-header>
+                @foreach (var forecast in forecasts)
+                {
+                    <ion-card>
+                        <ion-card-header>
+                            <ion-card-subtitle>
+                                @forecast.Date.ToShortDateString()
+                            </ion-card-subtitle>
+                            <ion-card-title>
+                                @GetTempAsText(forecast)
+                            </ion-card-title>
+                        </ion-card-header>
+                        <ion-card-content>
+                            @forecast.Summary
+                        </ion-card-content>
+                    </ion-card>
+                }
+            </ion-list>
+            <br /><br />
+        }
+    </div>
 </ion-content>
 </ion-page>
 
