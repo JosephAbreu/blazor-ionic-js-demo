@@ -18,6 +18,8 @@
             <ion-item>
                 <ion-label color="primary">Increment By:</ion-label>
                 <ion-input type="number" @bind-value:event="oninput" @bind-value="incrementBy"></ion-input>
+            </ion-item>
+            <ion-item>
                 <ion-button size="default" slot="end" @onclick="OnIncrementCount">Click Me</ion-button>
                 <ion-button size="default" slot="end" fill="outline" color="secondary" @onclick="OnReset">Reset</ion-button>
             </ion-item>
@@ -28,7 +30,7 @@
 
 @code {
     private int currentCount = 0;
-    private int incrementBy = 0;
+    private int incrementBy = 1;
 
     private void OnIncrementCount()
     {
